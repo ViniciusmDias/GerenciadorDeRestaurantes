@@ -10,7 +10,7 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import model.Bebidas;
-import model.BebidasSession;
+import model.SessionBeans.BebidasSession;
 /**
  *
  * @author viniciusdias

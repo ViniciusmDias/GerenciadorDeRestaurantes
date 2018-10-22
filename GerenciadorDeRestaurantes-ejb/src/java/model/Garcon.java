@@ -55,6 +55,10 @@ public class Garcon implements Serializable {
         this.senha = senha;
     }
 
+    public Garcon(String nome, String cpf, String endereco, String telefone) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getCpf() {
         return cpf;
     }

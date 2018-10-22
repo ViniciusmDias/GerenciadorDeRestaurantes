@@ -11,11 +11,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import model.Garcon;
-import model.GerenteSession;
-import model.Ingredientes;
-import model.Pratos;
-import model.Vendas;
+import model.SessionBeans.GerenteSession;
 
 /**
  *
@@ -27,62 +23,46 @@ public class GerenteMBean {
 
     @EJB
     private GerenteSession gerenteSession;
-    
-    private Gerente gerente = new Gerente();  // Guarda os dados do formulário
 
-    private Garcon garcon = new Garcon();   
-    private Pratos pratos = new Pratos();   
-    private Ingredientes ingredientes = new Ingredientes();   
-    private Vendas vendas = new Vendas();
-    
-    
-    
+    private Integer id;
+    private String senha;
+
     /**
-     * Creates a new instance of GerenteManagedBean
+     * Creates a new instance of FuncionarioJSFManagedBean
      */
     public GerenteMBean() {
     }
-    
-    public List<Gerente> getListaGerente() {
-        return gerenteSession.getListaGerente();
-    }
-    
-    public Gerente getGerente() {
-        return gerente;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setGerente(Gerente gerente) {
-        this.gerente = gerente;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String cadastrarGarcon() {          // Chama o método do bean de sessão
-        gerenteSession.cadastrarGarcon(garcon);
-        garcon = new Garcon();
-        return "index";
+    public String getSenha() {
+        return senha;
     }
-    public List<Garcon> getListaGarcon() {
-        return gerenteSession.getListaGarcon();
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
-    
-    public String salvarGarcon() {
-        gerenteSession.salvarGarcon(this.garcon);
-        return "index";
+
+
+
+    public String login() {
+            Gerente gerente = gerenteSession.login(this.id, this.senha);
+            if(gerente != null) {
+                    return "gerenteDashboard?faces-redirect=true";
+            } else {
+
+            }
+            return "index";
     }
-    
-    public String removerGarcon(Long cpf) {
-        gerenteSession.removerGarcon(cpf);
-        return "index";
+
+    public List<Gerente> getGerentes() {
+            return gerenteSession.getListaGerente();
     }
-    
-    public void editarGarcon(Long cpf) {
-        gerenteSession.editarGarcon(cpf);
-    }
-    
-    
-    public String cadastrarPratos() {          // Chama o método do bean de sessão
-        gerenteSession.cadastrarPratos(pratos);
-        pratos = new Pratos();
-        return "index";
-    }
-    
+
 }
