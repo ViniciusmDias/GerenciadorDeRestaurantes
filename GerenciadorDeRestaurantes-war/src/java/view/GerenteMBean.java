@@ -58,7 +58,7 @@ public class GerenteMBean {
             } else {
 
             }
-            return "index";
+            return "gerenteDashboard?faces-redirect=true";
     }
 
     public List<Gerente> getGerentes() {

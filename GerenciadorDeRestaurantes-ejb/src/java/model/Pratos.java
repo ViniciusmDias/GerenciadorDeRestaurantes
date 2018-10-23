@@ -60,6 +60,10 @@ public class Pratos implements Serializable {
         this.nrop = nrop;
     }
 
+    public Pratos(Integer nrop, String tipo, Long valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Integer getNrop() {
         return nrop;
     }

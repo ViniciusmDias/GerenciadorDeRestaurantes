@@ -55,6 +55,10 @@ public class Bebidas implements Serializable {
         this.nrob = nrob;
     }
 
+    public Bebidas(Integer nrob, String nome, Long valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Integer getNrob() {
         return nrob;
     }

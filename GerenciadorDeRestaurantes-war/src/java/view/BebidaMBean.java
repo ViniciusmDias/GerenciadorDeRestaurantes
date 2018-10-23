@@ -21,10 +21,51 @@ public class BebidaMBean {
 
     @EJB
     private BebidasSession bebidaSession;
+    private String nome;
+    private Integer nrob;
+    private Long valor;
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getNrob() {
+        return nrob;
+    }
+
+    public void setNrob(Integer nrob) {
+        this.nrob = nrob;
+    }
+
+    public Long getValor() {
+        return valor;
+    }
+
+    public void setValor(Long valor) {
+        this.valor = valor;
+    }
     
     public List<Bebidas> getListaBebidas() {
         return bebidaSession.getListaBebidas();
     }
+    
+    public Bebidas findBebidasByNome(String nome) {
+        return bebidaSession.findBebidasByNome(nome);
+    }
+
+    public Bebidas findBebidasById(Integer nrob) {
+        return bebidaSession.findBebidasById(nrob);
+    }
+
+    public Bebidas createBebidas() {
+        return bebidaSession.createBebida(this.nrob, this.nome, this.valor);
+    }
+    
+    
     /**n
      * Creates a new instance of BebidaMBean
      */

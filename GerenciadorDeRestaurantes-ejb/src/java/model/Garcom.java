@@ -22,13 +22,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author viniciusdias
  */
 @Entity
-@Table(name = "GARCON")
+@Table(name = "GARCOM")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Garcon.findAll", query = "SELECT g FROM Garcon g")
-    , @NamedQuery(name = "Garcon.findByCpf", query = "SELECT g FROM Garcon g WHERE g.cpf = :cpf")
-    , @NamedQuery(name = "Garcon.findBySenha", query = "SELECT g FROM Garcon g WHERE g.senha = :senha")})
-public class Garcon implements Serializable {
+    @NamedQuery(name = "Garcom.findAll", query = "SELECT g FROM Garcom g")
+    , @NamedQuery(name = "Garcom.findByCpf", query = "SELECT g FROM Garcom g WHERE g.cpf = :cpf")
+    , @NamedQuery(name = "Garcom.findBySenha", query = "SELECT g FROM Garcom g WHERE g.senha = :senha")})
+public class Garcom implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,19 +43,19 @@ public class Garcon implements Serializable {
     @Column(name = "SENHA")
     private String senha;
 
-    public Garcon() {
+    public Garcom() {
     }
 
-    public Garcon(String cpf) {
+    public Garcom(String cpf) {
         this.cpf = cpf;
     }
 
-    public Garcon(String cpf, String senha) {
+    public Garcom(String cpf, String senha) {
         this.cpf = cpf;
         this.senha = senha;
     }
 
-    public Garcon(String nome, String cpf, String endereco, String telefone) {
+    public Garcom(String nome, String cpf, String endereco, String telefone) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -85,10 +85,10 @@ public class Garcon implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Garcon)) {
+        if (!(object instanceof Garcom)) {
             return false;
         }
-        Garcon other = (Garcon) object;
+        Garcom other = (Garcom) object;
         if ((this.cpf == null && other.cpf != null) || (this.cpf != null && !this.cpf.equals(other.cpf))) {
             return false;
         }
@@ -97,7 +97,7 @@ public class Garcon implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Garcon[ cpf=" + cpf + " ]";
+        return "model.Garcom[ cpf=" + cpf + " ]";
     }
     
 }
